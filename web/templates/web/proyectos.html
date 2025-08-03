@@ -1,0 +1,19 @@
+{% extends 'web/base.html' %}
+
+{% block title %}Proyectos{% endblock %}
+
+{% block content %}
+    <h2 class="mb-4">Lista de Proyectos</h2>
+    <ul class="list-group">
+        {% for p in proyectos %}
+            <li class="list-group-item">
+                <strong>{{ p.titulo }}</strong><br>
+                {{ p.descripcion }}<br>
+                <small class="text-muted">Creado el {{ p.fecha_creacion }}</small><p><strong>Tecnologías:</strong> {{ p.tecnologias }}</p>
+                <p><a href="{{ p.enlace }}" target="_blank">Ver proyecto</a></p>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No hay proyectos registrados aún.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
